@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AutoTestMainactivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/auto_search"
+        android:text="搜索中"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/wifi_name"
+        android:text="请输入账号"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/wifi_password"
+        android:text="请输入密码"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/wifi_number_total"
+        android:hint="请输入测试次数"/>
+
+    <TextView
+        android:id="@+id/resetCountNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="已完成测试次数"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/wifi_number_current"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="36sp"
+        android:text="0"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/test_start"
+        android:text="开始测试"/>
+
+    <Button
+        android:id="@+id/btn_stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="stopClick"
+        android:text="暂停"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#E91E63"
+        android:textSize="60dp"
+        android:id="@+id/wifi_current_data"
+        android:text="当前WiFi"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="800dp"
+        android:id="@+id/listview_wifi"/>
+
+
+
+</LinearLayout>

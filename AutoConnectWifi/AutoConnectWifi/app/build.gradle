@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        debug {
+            storeFile file('D:\\public\\code\\work\\AutoConnectWifi\\AutoConnectWifi\\app\\signApk\\platform.keystore')
+            storePassword '123456'
+            keyAlias 'SignKitking'
+            keyPassword '123456'
+        }
+    }
+    compileSdkVersion 30
+    buildToolsVersion "24.0.1"
+
+    defaultConfig {
+        applicationId "com.desaysv.autoconnectwifi"
+        minSdkVersion 30
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        signingConfig signingConfigs.debug
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
+    compileOnly fileTree(dir: 'libs', include: ['framework.jar'])
+    implementation fileTree(dir: 'libs', include: ['wifi.jar'])
+    testCompile 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:24.1.1'
+
+}

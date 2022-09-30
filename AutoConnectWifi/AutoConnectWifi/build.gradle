@@ -1,0 +1,43 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.2'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        google()
+    }
+
+
+// 设置framework.jar包优先系统包
+//    gradle.projectsEvaluated {
+//        tasks.withType(JavaCompile) {
+//            options.compilerArgs.add('-Xbootclasspath/p:app/libs/framework.jar')
+//        }
+//    }
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            Set<File> fileSet = options.bootstrapClasspath.getFiles()
+            List<File> newFileList =  new ArrayList<>()
+            newFileList.add(new File("app\\libs\\framework.jar"))
+            newFileList.add(new File("app\\libs\\wifi.jar"))
+            newFileList.addAll(fileSet)
+            options.bootstrapClasspath = files(newFileList.toArray())
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
